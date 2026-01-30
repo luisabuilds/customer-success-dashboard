@@ -22,15 +22,18 @@ export async function POST(request: NextRequest) {
     const newIntegration: CustomerIntegration = {
       id: Date.now().toString(),
       account: body.account,
-      accountOwner: body.accountOwner,
+      contact: body.contact,
+      accountExecutive: body.accountExecutive,
       integrationType: body.integrationType,
       integrationScopeDocUrl: body.integrationScopeDocUrl || '',
       priority: body.priority || 'Medium',
       tasks: body.tasks || [],
       kickoffDate: body.kickoffDate,
+      stage: body.stage || 'New Integrations',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      attioRecordId: body.attioRecordId
+      attioRecordId: body.attioRecordId,
+      attioAccountUrl: body.attioAccountUrl
     };
 
     const created = await storageService.createIntegration(newIntegration);
