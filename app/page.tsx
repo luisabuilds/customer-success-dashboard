@@ -63,7 +63,7 @@ export default function DashboardPage() {
         integrationScopeDocUrl: '',
         priority: 'Medium',
         kickoffDate: '',
-        stage: 'Planning',
+        stage: 'New Integrations',
         tasks: []
       });
     } catch (error) {
