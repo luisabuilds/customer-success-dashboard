@@ -283,7 +283,8 @@ export default function DashboardPage() {
                 <select
                   value={newIntegration.account}
                   onChange={(e) => setNewIntegration({ ...newIntegration, account: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg appearance-none bg-white bg-no-repeat bg-[right_0.75rem_center] bg-[length:16px_16px]"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")` }}
                 >
                   <option value="">Select an account</option>
                   {ACCOUNTS.map((account) => (
@@ -329,7 +330,8 @@ export default function DashboardPage() {
                 <select
                   value={newIntegration.integrationType}
                   onChange={(e) => setNewIntegration({ ...newIntegration, integrationType: e.target.value as IntegrationType })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg appearance-none bg-white bg-no-repeat bg-[right_0.75rem_center] bg-[length:16px_16px]"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")` }}
                 >
                   <option value="AI Automated Prior Authorizations">AI Automated Prior Authorizations</option>
                   <option value="AI Automation for DME">AI Automation for DME</option>
@@ -372,7 +374,8 @@ export default function DashboardPage() {
                   <select
                     value={newIntegration.stage}
                     onChange={(e) => setNewIntegration({ ...newIntegration, stage: e.target.value as IntegrationStage })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg appearance-none bg-white bg-no-repeat bg-[right_0.75rem_center] bg-[length:16px_16px]"
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")` }}
                   >
                     <option value="New Integrations">New Integrations</option>
                     <option value="In Progress">In Progress</option>
@@ -388,7 +391,8 @@ export default function DashboardPage() {
                   <select
                     value={newIntegration.priority}
                     onChange={(e) => setNewIntegration({ ...newIntegration, priority: e.target.value as Priority })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg appearance-none bg-white bg-no-repeat bg-[right_0.75rem_center] bg-[length:16px_16px]"
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")` }}
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
