@@ -160,21 +160,75 @@ export const storageService = {
         tasks: [
           {
             id: '6-1',
-            title: 'Initial requirements gathering',
+            title: 'Discovery & Requirements Gathering',
             assignedTo: 'Sarah Johnson',
             team: 'Operations',
             status: 'Completed',
-            deadline: '2026-01-25',
-            description: 'Gather technical requirements and integration points'
+            deadline: '2026-01-20',
+            description: 'Conduct discovery sessions to understand current workflows, pain points, and integration requirements. Document technical specifications and success criteria.'
           },
           {
             id: '6-2',
-            title: 'API integration setup',
+            title: 'Contract & Legal Review',
+            assignedTo: 'Mike Davis',
+            team: 'Legal',
+            status: 'Completed',
+            deadline: '2026-01-25',
+            description: 'Review and finalize MSA, BAA (HIPAA), data processing agreements, and SLAs. Ensure compliance with healthcare regulations.'
+          },
+          {
+            id: '6-3',
+            title: 'Technical Architecture & API Setup',
             assignedTo: 'Robert Lee',
             team: 'Product',
             status: 'In Progress',
+            deadline: '2026-02-05',
+            description: 'Design integration architecture, provision API keys, configure webhooks, and establish secure data pipelines between Acme EHR and GenHealth.ai platform.'
+          },
+          {
+            id: '6-4',
+            title: 'Data Migration & Mapping',
+            assignedTo: 'Lisa Wang',
+            team: 'Operations',
+            status: 'In Progress',
             deadline: '2026-02-10',
-            description: 'Set up API connections and test endpoints'
+            description: 'Map Acme data fields to GenHealth schema, validate data integrity, and perform test migrations. Handle PHI according to HIPAA guidelines.'
+          },
+          {
+            id: '6-5',
+            title: 'Custom Configuration & Workflows',
+            assignedTo: 'Tom Anderson',
+            team: 'Product',
+            status: 'Not Started',
+            deadline: '2026-02-15',
+            description: 'Configure prior authorization rules, approval workflows, payer-specific requirements, and custom business logic based on Acme\'s operational needs.'
+          },
+          {
+            id: '6-6',
+            title: 'User Training & Enablement',
+            assignedTo: 'Jennifer Lee',
+            team: 'Operations',
+            status: 'Not Started',
+            deadline: '2026-02-20',
+            description: 'Develop training materials, conduct live training sessions for clinical staff, and create self-service documentation. Train super-users for ongoing support.'
+          },
+          {
+            id: '6-7',
+            title: 'UAT & Go-Live Preparation',
+            assignedTo: 'Sarah Johnson',
+            team: 'Operations',
+            status: 'Not Started',
+            deadline: '2026-02-25',
+            description: 'Execute user acceptance testing with Acme team, resolve any defects, validate end-to-end workflows, and prepare go-live checklist and rollback plan.'
+          },
+          {
+            id: '6-8',
+            title: 'Go-Live & Hypercare Support',
+            assignedTo: 'David Martinez',
+            team: 'Sales',
+            status: 'Not Started',
+            deadline: '2026-03-01',
+            description: 'Execute production go-live, provide dedicated hypercare support for first 2 weeks, monitor system performance, and conduct post-launch success review with stakeholders.'
           }
         ],
         kickoffDate: '2026-01-20',
@@ -374,7 +428,7 @@ export const storageService = {
             title: 'Final UAT',
             assignedTo: 'Lisa Wang',
             team: 'Operations',
-            status: 'In Progress',
+            status: 'Completed',
             deadline: '2026-02-01',
             description: 'Complete user acceptance testing'
           },
@@ -383,7 +437,7 @@ export const storageService = {
             title: 'Go-live checklist',
             assignedTo: 'Sarah Johnson',
             team: 'Operations',
-            status: 'Not Started',
+            status: 'Completed',
             deadline: '2026-02-05',
             description: 'Complete pre-launch checklist'
           }
@@ -409,7 +463,7 @@ export const storageService = {
             title: 'Performance validation',
             assignedTo: 'Robert Lee',
             team: 'Product',
-            status: 'In Progress',
+            status: 'Completed',
             deadline: '2026-02-03',
             description: 'Validate system performance metrics'
           }
@@ -435,7 +489,7 @@ export const storageService = {
             title: 'Contract sign-off',
             assignedTo: 'Mike Davis',
             team: 'Legal',
-            status: 'In Progress',
+            status: 'Completed',
             deadline: '2026-02-02',
             description: 'Get final contract approval'
           }

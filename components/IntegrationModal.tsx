@@ -1,7 +1,7 @@
 'use client';
 
-import { CustomerIntegration, Task, Team, TaskStatus } from '@/types/integration';
-import { X, Calendar, User, ExternalLink, Plus, Edit2, Trash2, Building2 } from 'lucide-react';
+import { CustomerIntegration, Task, Team, TaskStatus, Priority } from '@/types/integration';
+import { X, Calendar, User, ExternalLink, Plus, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
 import { useState } from 'react';
 
@@ -97,63 +97,64 @@ export function IntegrationModal({ integration, onClose, onUpdate }: Integration
 
         <div className="p-6">
           {/* Account Details */}
-          <div className="grid grid-cols-3 gap-6 mb-6">
-            <div className="col-span-2 bg-gray-50 rounded-lg p-4">
-              <h3 className="text-lg font-semibold mb-4">Account Details</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Contact</label>
-                  <p className="text-gray-900">{integration.contact}</p>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Account Executive</label>
-                  <p className="text-gray-900">{integration.accountExecutive}</p>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Priority</label>
-                  <p className="text-gray-900">{integration.priority}</p>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Kickoff Date</label>
-                  <p className="text-gray-900">
-                    {format(new Date(integration.kickoffDate), 'MMMM dd, yyyy')}
-                  </p>
-                </div>
-                <div className="col-span-2">
-                  <label className="text-sm font-medium text-gray-700">Integration Scope</label>
-                  {integration.integrationScopeDocUrl ? (
-                    <a
-                      href={integration.integrationScopeDocUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Document
-                    </a>
-                  ) : (
-                    <p className="text-gray-500">No document linked</p>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-4 flex flex-col justify-center items-center border border-purple-200">
-              <Building2 className="w-12 h-12 text-purple-600 mb-3" />
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">Attio CRM</h3>
-              {integration.attioAccountUrl ? (
+          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Account Details</h3>
+              {integration.attioAccountUrl && (
                 <a
                   href={integration.attioAccountUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all shadow-md hover:shadow-lg text-sm font-medium"
+                  className="inline-flex items-center gap-2 bg-purple-600 text-white px-3 py-1.5 rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
                 >
                   <span>View in Attio</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
-              ) : (
-                <p className="text-sm text-gray-500 text-center">No Attio link available</p>
               )}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-gray-700">Contact</label>
+                <p className="text-gray-900">{integration.contact}</p>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">Account Executive</label>
+                <p className="text-gray-900">{integration.accountExecutive}</p>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">Priority</label>
+                <select
+                  value={integration.priority}
+                  onChange={(e) => onUpdate({ priority: e.target.value as Priority })}
+                  className="mt-1 block px-2 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">Kickoff Date</label>
+                <p className="text-gray-900">
+                  {format(new Date(integration.kickoffDate), 'MMMM dd, yyyy')}
+                </p>
+              </div>
+              <div className="col-span-2">
+                <label className="text-sm font-medium text-gray-700">Integration Scope</label>
+                {integration.integrationScopeDocUrl ? (
+                  <a
+                    href={integration.integrationScopeDocUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Document
+                  </a>
+                ) : (
+                  <p className="text-gray-500">No document linked</p>
+                )}
+              </div>
             </div>
           </div>
 
@@ -182,13 +183,18 @@ export function IntegrationModal({ integration, onClose, onUpdate }: Integration
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                   />
                   <div className="grid grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      placeholder="Assigned to"
+                    <select
                       value={newTask.assignedTo}
                       onChange={(e) => setNewTask({ ...newTask, assignedTo: e.target.value })}
                       className="px-3 py-2 border border-gray-300 rounded-lg"
-                    />
+                    >
+                      <option value="">Select assignee</option>
+                      <option value="Sarah">Sarah</option>
+                      <option value="Luisa">Luisa</option>
+                      <option value="Robert">Robert</option>
+                      <option value="Lisa">Lisa</option>
+                      <option value="Mike">Mike</option>
+                    </select>
                     <select
                       value={newTask.team}
                       onChange={(e) => setNewTask({ ...newTask, team: e.target.value as Team })}

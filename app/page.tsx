@@ -103,13 +103,7 @@ export default function DashboardPage() {
   const stats = {
     backlog: integrations.filter(i => i.stage === 'New Integrations').length,
     inProgress: integrations.filter(i => i.stage === 'In Progress').length,
-    atRisk: integrations.filter(i => {
-      // Integrations are "at risk" if they have high priority and are not completed
-      // or if they have overdue tasks
-      const hasHighPriority = i.priority === 'High';
-      const isNotCompleted = i.stage !== 'Completed';
-      return hasHighPriority && isNotCompleted;
-    }).length
+    inReview: integrations.filter(i => i.stage === 'Review').length
   };
 
   return (
@@ -122,7 +116,12 @@ export default function DashboardPage() {
             alt="Company Logo"
             className="h-10 w-auto"
           />
-          <UserButton afterSignOutUrl="/sign-in" />
+          <div className="flex items-center gap-4">
+            <button className="text-gray-600 hover:text-gray-900 font-medium text-sm">
+              My Tasks
+            </button>
+            <UserButton afterSignOutUrl="/sign-in" />
+          </div>
         </div>
       </nav>
 
@@ -179,9 +178,9 @@ export default function DashboardPage() {
               <p className="text-sm text-gray-600">Integrations In Progress</p>
               <p className="text-2xl font-bold text-purple-600">{stats.inProgress}</p>
             </div>
-            <div className="bg-red-50 rounded-lg p-4">
-              <p className="text-sm text-gray-600">Integrations at Risk</p>
-              <p className="text-2xl font-bold text-red-600">{stats.atRisk}</p>
+            <div className="bg-orange-50 rounded-lg p-4">
+              <p className="text-sm text-gray-600">Integrations in Review</p>
+              <p className="text-2xl font-bold text-orange-600">{stats.inReview}</p>
             </div>
           </div>
         </div>
