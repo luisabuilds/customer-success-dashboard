@@ -128,6 +128,7 @@ export function IntegrationModal({ integration, onClose, onUpdate }: Integration
                   onChange={(e) => onUpdate({ priority: e.target.value as Priority })}
                   className="mt-1 block px-2 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500"
                 >
+                  <option value="Highest">Highest</option>
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
                   <option value="Low">Low</option>

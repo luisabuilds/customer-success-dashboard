@@ -224,6 +224,7 @@ export default function DashboardPage() {
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             >
               <option value="All">All Priorities</option>
+              <option value="Highest">Highest</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -394,6 +395,7 @@ export default function DashboardPage() {
                     className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg appearance-none bg-white bg-no-repeat bg-[right_0.75rem_center] bg-[length:16px_16px]"
                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")` }}
                   >
+                    <option value="Highest">Highest</option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option>
