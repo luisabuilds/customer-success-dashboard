@@ -6,7 +6,7 @@ export type IntegrationType =
 
 export type Team = 'Sales' | 'Operations' | 'Legal' | 'Finance' | 'Product';
 
-export type Priority = 'High' | 'Medium' | 'Low';
+export type Priority = 'Highest' | 'High' | 'Medium' | 'Low';
 
 export type TaskStatus = 'Not Started' | 'In Progress' | 'Completed' | 'Blocked';
 

@@ -285,10 +285,12 @@ export function IntegrationModal({ integration, onClose, onUpdate }: Integration
                           <User className="w-4 h-4" />
                           <span>{task.assignedTo}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{format(new Date(task.deadline), 'MMM dd, yyyy')}</span>
-                        </div>
+                        {task.deadline && (
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{format(new Date(task.deadline), 'MMM dd, yyyy')}</span>
+                          </div>
+                        )}
                       </div>
                       
                       <select

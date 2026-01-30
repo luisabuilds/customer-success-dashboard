@@ -36,7 +36,13 @@ function rowToTask(row: Record<string, unknown>): Task {
 
 export const storageService = {
   async getAllIntegrations(): Promise<CustomerIntegration[]> {
-    const integrations = await sql`SELECT * FROM integrations ORDER BY created_at DESC`;
+    const integrations = await sql`SELECT * FROM integrations ORDER BY
+      CASE priority
+        WHEN 'Highest' THEN 1
+        WHEN 'High' THEN 2
+        WHEN 'Medium' THEN 3
+        WHEN 'Low' THEN 4
+      END, created_at DESC`;
     const tasks = await sql`SELECT * FROM tasks`;
 
     const tasksByIntegration: Record<string, Task[]> = {};
