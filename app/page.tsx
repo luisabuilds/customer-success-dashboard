@@ -15,7 +15,7 @@ export default function DashboardPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterPriority, setFilterPriority] = useState<Priority | 'All'>('All');
   const [isLoading, setIsLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'table' | 'kanban'>('table');
+  const [viewMode, setViewMode] = useState<'table' | 'kanban'>('kanban');
 
   const [newIntegration, setNewIntegration] = useState<Partial<CustomerIntegration>>({
     account: '',
@@ -113,9 +113,21 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+      {/* Navigation */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <img 
+            src="https://res.cloudinary.com/dk9rccpw4/image/upload/v1769739910/Screenshot_2026-01-29_at_9.14.56_p.m._jrvexj.png" 
+            alt="Company Logo" 
+            className="h-10 w-auto"
+          />
+        </div>
+      </nav>
+
+      {/* Header Section */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex justify-between items-center mb-6">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Customer Success Dashboard</h1>
               <p className="text-gray-600 mt-1">Manage customer integrations and onboarding</p>
@@ -154,11 +166,8 @@ export default function DashboardPage() {
               </button>
             </div>
           </div>
-        </div>
-      </header>
 
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-blue-50 rounded-lg p-4">
               <p className="text-sm text-gray-600">Integration Backlog</p>
