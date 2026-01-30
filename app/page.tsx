@@ -9,6 +9,25 @@ import { Plus, Search, RefreshCw, Table, Kanban } from 'lucide-react';
 import { UserButton } from '@clerk/nextjs';
 import axios from 'axios';
 
+// Demo accounts - will be linked to Attio in the future
+const ACCOUNTS = [
+  { id: 'acc_1', name: 'Acme Healthcare', attioId: '' },
+  { id: 'acc_2', name: 'MedTech Solutions', attioId: '' },
+  { id: 'acc_3', name: 'Pacific Health Group', attioId: '' },
+  { id: 'acc_4', name: 'Sunrise Medical Center', attioId: '' },
+  { id: 'acc_5', name: 'Valley Health Systems', attioId: '' },
+  { id: 'acc_6', name: 'Northwest Care', attioId: '' },
+  { id: 'acc_7', name: 'Summit Health Partners', attioId: '' },
+  { id: 'acc_8', name: 'Coastal Medical Group', attioId: '' },
+  { id: 'acc_9', name: 'Metro Health Network', attioId: '' },
+  { id: 'acc_10', name: 'Premier Healthcare', attioId: '' },
+  { id: 'acc_11', name: 'United Medical Associates', attioId: '' },
+  { id: 'acc_12', name: 'Harmony Health', attioId: '' },
+  { id: 'acc_13', name: 'Riverside Medical', attioId: '' },
+  { id: 'acc_14', name: 'Golden State Health', attioId: '' },
+  { id: 'acc_15', name: 'Pinnacle Care', attioId: '' },
+];
+
 export default function DashboardPage() {
   const [integrations, setIntegrations] = useState<CustomerIntegration[]>([]);
   const [selectedIntegration, setSelectedIntegration] = useState<CustomerIntegration | null>(null);
@@ -261,13 +280,18 @@ export default function DashboardPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Account (Company) <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   value={newIntegration.account}
                   onChange={(e) => setNewIntegration({ ...newIntegration, account: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-                  placeholder="Enter company name"
-                />
+                >
+                  <option value="">Select an account</option>
+                  {ACCOUNTS.map((account) => (
+                    <option key={account.id} value={account.name}>
+                      {account.name}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
