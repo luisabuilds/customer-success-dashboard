@@ -69,7 +69,7 @@ export const storageService = {
         accountExecutive: 'Emily Chen',
         integrationType: 'Full Service DME RCM',
         integrationScopeDocUrl: 'https://docs.google.com/document/d/sunrise-health',
-        priority: 'Medium',
+        priority: 'High',
         stage: 'New Integrations',
         tasks: [
           {
@@ -251,7 +251,7 @@ export const storageService = {
         accountExecutive: 'John Smith',
         integrationType: 'AI Automation for DME',
         integrationScopeDocUrl: 'https://docs.google.com/document/d/beacon-health',
-        priority: 'Medium',
+        priority: 'High',
         stage: 'In Progress',
         tasks: [
           {
@@ -401,7 +401,7 @@ export const storageService = {
         accountExecutive: 'Emily Chen',
         integrationType: 'AI Automated Prior Authorizations',
         integrationScopeDocUrl: 'https://docs.google.com/document/d/apex-medical',
-        priority: 'Medium',
+        priority: 'High',
         stage: 'Review',
         tasks: [
           {
