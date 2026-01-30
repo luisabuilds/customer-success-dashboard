@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Customer Success Dashboard',
   description: 'Manage customer integrations after deal closure',
+  icons: {
+    icon: '/icon.jpg',
+  },
 };
 
 export default function RootLayout({
